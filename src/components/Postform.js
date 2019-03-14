@@ -27,6 +27,8 @@ export default class Postform extends Component {
             body: JSON.stringify(post)
         }).then(res => res.json())
           .then(data => console.log(data))
+          // now in case you want to pass this data to app.js, i would recomment to pass the input values (post) to app.js
+          // and make the fetch call there. another option is to use redux.
     }
 
     onChange(e){
