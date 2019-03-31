@@ -1,4 +1,4 @@
-/* import React, { Component } from 'react'
+import React, { Component } from 'react'
 
 export default class Postform extends Component {
     constructor(props){
@@ -56,4 +56,3 @@ export default class Postform extends Component {
     )
   }
 }
- */

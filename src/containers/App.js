@@ -11,8 +11,8 @@ class App extends Component {
       <Provider store = {store}>
       <div className="App">
        <h1>Posts</h1>
-       {/* <Postform />
-       <Post /> */}
+       <Postform />
+       <Post />
       </div>
       </Provider>
     );
