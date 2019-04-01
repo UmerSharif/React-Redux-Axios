@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import {createPost} from '../actions/postAction'
 import {connect} from 'react-redux'
+import PropTypes from 'prop-types'
 
-export default class Postform extends Component {
+ class Postform extends Component {
     constructor(props){
         super(props)
         this.state = {
@@ -60,3 +61,9 @@ export default class Postform extends Component {
     )
   }
 }
+
+Postform.propTypes = {
+createPost: PropTypes.func.isRequired
+}
+
+export default connect(null,{createPost})(Postform)

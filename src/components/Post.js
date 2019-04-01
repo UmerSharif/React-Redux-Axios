@@ -9,6 +9,12 @@ class Post extends Component {
     this.props.fetchPost()
   }
 
+  componentWillReceiveProps(nextProps){
+    if(nextProps.newPost) {
+      this.props.posts.unshift(nextProps.newPost)
+    }
+  }
+
   // componentWillMount() {
   //   fetch("https://jsonplaceholder.typicode.com/posts")
   //     .then(response => response.json())
@@ -16,7 +22,7 @@ class Post extends Component {
   // }
   render() {
     const postdata = this.props.posts
-      .filter(data => data.id <= 10)
+      .filter(data => data.id <= 10) // remove this condition if you want to see the new added post
       .map(post => (
         <div key={post.id}>
           <h3>{post.title}</h3>
@@ -30,11 +36,13 @@ class Post extends Component {
 
 Post.propTypes = {
   fetchPost: PropTypes.func.isRequired,
-  posts: PropTypes.array.isRequired
+  posts: PropTypes.array.isRequired,
+  newPost: PropTypes.object
 }
 
 const mapStateToProps = state => ({
-  posts: state.posts.items
+  posts: state.posts.items,
+  newPost: state.posts.item
 })
 
 export default connect(mapStateToProps,{fetchPost})(Post)
