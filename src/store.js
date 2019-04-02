@@ -6,6 +6,7 @@ const initialState = {}
 
 const middleWares = [thunk]
 
+// add redux logger as middleware for better logging
 
 const store = createStore(rootReducer, initialState, 
     compose(
